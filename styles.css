@@ -144,6 +144,9 @@ h3{font-size:21px;line-height:1.24;letter-spacing:-.012em}
   box-shadow:0 10px 26px rgba(0,0,0,.55)}
 .handle-ico{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   z-index:2;color:var(--ink);font-size:15px;font-weight:900;letter-spacing:-.04em}
+.layer{position:absolute;inset:0;z-index:2;pointer-events:none}
+.layer-before{clip-path:inset(0 calc(100% - var(--split,52%)) 0 0)}
+.layer-after{clip-path:inset(0 0 0 var(--split,52%))}
 .tag{position:absolute;top:16px;z-index:2;font-size:11.5px;font-weight:800;
   letter-spacing:.15em;text-transform:uppercase;padding:8px 13px;border-radius:999px;
   background:rgba(12,14,11,.74);backdrop-filter:blur(6px);color:var(--cream);
@@ -207,22 +210,6 @@ footer a{text-decoration:none;transition:color .2s}
 footer a:hover{color:var(--cream)}
 .foot-links{display:flex;gap:22px}
 
-/* ---------- sticky bar, appears once the hero is gone ---------- */
-.stickybar{position:fixed;left:50%;bottom:22px;z-index:50;
-  transform:translate(-50%,140%);transition:transform .45s var(--ease);
-  display:flex;align-items:center;gap:16px;
-  background:color-mix(in srgb,var(--ink-2) 92%,transparent);
-  backdrop-filter:blur(16px);border:1px solid var(--line);
-  border-radius:999px;padding:9px 9px 9px 22px;
-  box-shadow:0 26px 60px -24px rgba(0,0,0,.95);max-width:calc(100vw - 32px)}
-.stickybar.is-on{transform:translate(-50%,0)}
-.stickybar p{margin:0;font-size:14.5px;font-weight:600;white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis}
-.stickybar a{background:var(--red);color:#fff;text-decoration:none;font-weight:700;
-  font-size:14px;padding:11px 20px;border-radius:999px;white-space:nowrap;
-  transition:background .2s}
-.stickybar a:hover{background:var(--red-hot)}
-
 /* ---------- reveal on scroll ---------- */
 .reveal{opacity:0;transform:translateY(22px);
   transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -250,10 +237,6 @@ footer a:hover{color:var(--cream)}
   .br-wide{display:none}
   .hero .lede{max-width:none}
   .steps-grid,.props{grid-template-columns:1fr}
-  .stickybar{left:16px;right:16px;transform:translateY(140%);width:auto}
-  .stickybar.is-on{transform:translateY(0)}
-  .stickybar p{display:none}
-  .stickybar{justify-content:center;padding:9px}
 }
 @media (max-width:420px){
   .signup-row{flex-direction:column}

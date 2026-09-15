@@ -32,10 +32,8 @@
     revealables.forEach(function (el) { seen.observe(el); });
   }
 
-  /* ---------- nav hairline + sticky bar, both driven by one scroll read ---------- */
+  /* ---------- nav hairline and glow drift, on one scroll read ---------- */
   var nav = document.getElementById('nav');
-  var bar = document.getElementById('stickybar');
-  var hero = document.getElementById('get');
   var glows = document.querySelectorAll('.glow');
   var ticking = false;
 
@@ -43,12 +41,6 @@
     var y = window.scrollY || window.pageYOffset;
 
     if (nav) nav.classList.toggle('is-stuck', y > 8);
-
-    if (bar && hero) {
-      var past = y > hero.offsetTop + hero.offsetHeight - 120;
-      var atEnd = (y + window.innerHeight) > (document.body.scrollHeight - 320);
-      bar.classList.toggle('is-on', past && !atEnd);
-    }
 
     if (!calm) {
       glows.forEach(function (g) {

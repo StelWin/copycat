@@ -43,10 +43,7 @@ domain, point the domain's DNS at GitHub, and tick *Enforce HTTPS*.
 
 ## Still to fill in
 
-Three placeholders are in the files as literal text — search and replace:
-
-- `CONTACT_EMAIL` — an address for the privacy page. Legally required.
-- `INSTAGRAM_HANDLE` — for the footer links.
+Nothing — the contact address and the Instagram handle are both filled in.
 
 ## The form
 
