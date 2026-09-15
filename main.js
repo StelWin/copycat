@@ -132,6 +132,21 @@
     wrap.addEventListener('pointerleave', function () { tilt.style.transform = ''; });
   }
 
+  /* ---------- where they came from ----------
+     Instagram's in-app browser strips the referrer, so a tag on the link is
+     the only reliable way to tell a bio visit from a story or a given post.
+     Kept for the session so a trip to the privacy page doesn't lose it. */
+  var SOURCE = (function () {
+    var key = 'cc_src';
+    var q = new URLSearchParams(location.search);
+    var tag = q.get('src') || q.get('utm_source') || '';
+    try {
+      if (tag) sessionStorage.setItem(key, tag);
+      else tag = sessionStorage.getItem(key) || '';
+    } catch (e) { /* private browsing; the tag just won't survive the hop */ }
+    return tag || 'direct';
+  })();
+
   /* ---------- sign-up ---------- */
   function send(payload) {
     if (!isLive) {
@@ -168,7 +183,7 @@
       button.disabled = true;
       button.textContent = 'Sending…';
 
-      send({ email: email, source: 'landing', page: location.pathname })
+      send({ email: email, source: 'landing', came_from: SOURCE, page: location.pathname })
         .then(function () {
           form.style.display = 'none';
           if (thanks) {
@@ -208,6 +223,7 @@
       send({
         email: thanks.dataset.email || '',
         source: 'survey',
+        came_from: SOURCE,
         role: answers.role || '',
         volume: answers.volume || ''
       });

@@ -70,7 +70,9 @@
       Form submissions are handled by <a href="https://formspree.io/legal/privacy-policy" rel="noopener">Formspree</a>,
       which stores them so they can be passed on. The website itself is hosted on
       <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Pages</a>,
-      which keeps standard server logs including visitors' IP addresses.
+      which keeps standard server logs including visitors' IP addresses. Visit counts
+      go to <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare</a>
+      in the aggregate form described below.
     </p>
     <p>
       Your address is never sold, rented, traded or handed to anyone for their own
@@ -79,9 +81,13 @@
 
     <h2>Cookies and tracking</h2>
     <p>
-      This site sets no cookies and runs no analytics, no advertising pixels and no
-      third-party trackers. That is why there is no cookie banner — there is nothing
-      to consent to.
+      This site sets no cookies. Visits are counted by
+      <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a>,
+      which records that a page was opened — roughly where from, on what kind of
+      device — without cookies, without fingerprinting, and without building any
+      profile of you. Nothing is stored on your device and nothing identifies you
+      personally, which is why there is no cookie banner: there is nothing to
+      consent to. There are no advertising pixels and no third-party trackers.
     </p>
 
     <h2>How long it is kept</h2>
@@ -123,5 +129,7 @@
 </footer>
 
 <script src="main.js"></script>
+<!-- Cloudflare Web Analytics: counts visits, sets no cookies, needs no banner -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "52e581b5ea81407e907edfb0dd8e8593"}'></script>
 </body>
 </html>
