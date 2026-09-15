@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copycat — turn any post you saved into your client's design</title>
+<meta name="description" content="Paste a reference from Pinterest or Instagram. Copycat rebuilds it in your client's brand as a real, editable design — in minutes.">
+<link rel="icon" href="assets/avatar.png">
+<meta property="og:title" content="Copycat — turn any post you saved into your client's design">
+<meta property="og:description" content="Paste a reference. Get back a real, editable design in your client's brand.">
+<meta property="og:image" content="assets/result.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/fraunces-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-0.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="atmos" aria-hidden="true">
+  <div class="glow glow-a" data-par="0.06"></div>
+  <div class="glow glow-b" data-par="-0.04"></div>
+  <div class="grain"></div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="shell">
+    <a class="brand" href="index.html">
+      <img src="assets/mark.svg" alt="" width="26" height="26">
+      Copycat
+    </a>
+    <a class="nav-cta" href="#get">Get early access</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ hero ============ -->
+  <section class="hero" id="get">
+    <div class="shell hero-grid">
+      <div>
+        <p class="eyebrow reveal">Early access</p>
+        <h1 class="reveal">Any post you saved, <br class="br-wide">rebuilt as <em>your client's.</em></h1>
+        <p class="lede reveal">
+          Paste a reference from Pinterest or Instagram. Copycat gives it back in your
+          client's colours, type and photos — as a real design you can still edit,
+          not a flat picture. Minutes, not an afternoon.
+        </p>
+
+        <form class="signup reveal" id="form-hero" novalidate>
+          <div class="signup-row">
+            <label class="sr-only" for="email-hero" hidden>Email address</label>
+            <input id="email-hero" type="email" name="email" required
+                   autocomplete="email" placeholder="you@studio.com">
+            <button class="btn" type="submit">Get early access</button>
+          </div>
+          <p class="signup-error" role="alert"></p>
+          <p class="signup-note">
+            <b>Free while it's being built.</b> One email when it opens. Nothing else, ever.
+          </p>
+        </form>
+
+        <div class="thanks" data-thanks>
+          <h3>You're on the list.</h3>
+          <p>Two quick questions — optional, and they shape what gets built first.</p>
+
+          <div class="q" data-q="role">
+            <span class="q-label">What do you make posts for?</span>
+            <div class="chips">
+              <button type="button" class="chip">Clients</button>
+              <button type="button" class="chip">My own brand</button>
+              <button type="button" class="chip">An agency</button>
+              <button type="button" class="chip">Something else</button>
+            </div>
+          </div>
+
+          <div class="q" data-q="volume">
+            <span class="q-label">Roughly how many posts a month?</span>
+            <div class="chips">
+              <button type="button" class="chip">Under 10</button>
+              <button type="button" class="chip">10–40</button>
+              <button type="button" class="chip">40–100</button>
+              <button type="button" class="chip">More</button>
+            </div>
+          </div>
+
+          <p class="thanks-done" data-thanks-done>Tap an answer and it's saved.</p>
+        </div>
+      </div>
+
+      <div class="demo reveal">
+        <div class="demo-card" data-tilt>
+          <div class="compare" id="compare" role="slider" tabindex="0"
+               aria-label="Drag to compare the reference with the rebuilt design"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="52">
+            <img class="before" src="assets/reference.jpg" alt="A butcher's poster found on Pinterest." width="736" height="920">
+            <img class="after"  src="assets/result.jpg"    alt="The same layout rebuilt for a bakery." width="1120" height="1400">
+            <span class="tag tag-l">The reference</span>
+            <span class="tag tag-r">Your client's</span>
+            <div class="handle"><span class="handle-ico">&#8596;</span></div>
+          </div>
+        </div>
+        <p class="demo-hint"><span>&#8596;</span> Drag to see the same layout become a bakery</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ how ============ -->
+  <section id="how">
+    <div class="shell">
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="reveal">Three steps, then it's <br class="br-wide">yours to change.</h2>
+
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-n">01</div>
+          <h3>Paste what you saved</h3>
+          <p>A screenshot, a link, a pin. Whatever caught your eye — it doesn't need to be tidy.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-n">02</div>
+          <h3>Say whose it is</h3>
+          <p>Your client's colours, their typeface, their product photos. Copycat keeps the layout and swaps everything else.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-n">03</div>
+          <h3>Edit anything</h3>
+          <p>Every headline, photo and shape is still live. Move it, rewrite it, export it at Instagram's own sizes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ why ============ -->
+  <section id="why">
+    <div class="shell">
+      <p class="eyebrow reveal">Why it's different</p>
+      <h2 class="reveal">Not a picture of a design. <br class="br-wide">The design.</h2>
+
+      <div class="props">
+        <div class="prop reveal">
+          <h3>Everything stays editable</h3>
+          <p>Text is text, photos are photos, colour is a value you can change. Nothing is baked in.</p>
+        </div>
+        <div class="prop reveal">
+          <h3>It doesn't break</h3>
+          <p>Longer words shrink to fit. Photos crop around their subject. The layout holds no matter what you type.</p>
+        </div>
+        <div class="prop reveal">
+          <h3>Built for a client list</h3>
+          <p>Several brands, a lot of posts, one person doing it. That's who this is for — not a stock template library.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ pull quote ============ -->
+  <section id="promise">
+    <div class="shell">
+      <div class="pull reveal">
+        <p>Inspiration in, finished post out.</p>
+        <cite>The whole idea</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ faq ============ -->
+  <section id="faq">
+    <div class="shell">
+      <p class="eyebrow reveal">Questions</p>
+      <h2 class="reveal">Before you sign up.</h2>
+
+      <div class="faq-list reveal">
+        <details>
+          <summary>What does early access cost?</summary>
+          <p>Nothing. It's being built right now, and the people on this list get in first and free while that's true. If it ever becomes paid, you'll be told before anything changes.</p>
+        </details>
+        <details>
+          <summary>Do I need to be a designer?</summary>
+          <p>No. You need a reference you like and a client whose brand you know. Copycat does the rebuilding; you decide what's right.</p>
+        </details>
+        <details>
+          <summary>Isn't this just copying someone's work?</summary>
+          <p>You're borrowing a layout, the way every designer always has — not reposting someone's photo or their words. What comes back is your client's product, your client's colours and your client's copy in a structure you liked.</p>
+        </details>
+        <details>
+          <summary>When does it open?</summary>
+          <p>No date to promise yet, which is exactly why there's a list instead of a countdown. You'll get one email when it's ready to use.</p>
+        </details>
+        <details>
+          <summary>What happens to my email?</summary>
+          <p>It's used to tell you when Copycat opens, and for nothing else. No list is sold, shared or rented. <a href="privacy.html">The privacy page</a> says it plainly.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ closing cta ============ -->
+  <section class="close" id="join">
+    <div class="shell">
+      <h2 class="reveal">Try it before everyone else.</h2>
+      <p class="lede reveal" style="margin-inline:auto">
+        Add your email. One message when it opens — that's the whole arrangement.
+      </p>
+
+      <form class="signup reveal" id="form-close" novalidate>
+        <div class="signup-row">
+          <label for="email-close" hidden>Email address</label>
+          <input id="email-close" type="email" name="email" required
+                 autocomplete="email" placeholder="you@studio.com">
+          <button class="btn" type="submit">Get early access</button>
+        </div>
+        <p class="signup-error" role="alert"></p>
+        <p class="signup-note">No spam. Unsubscribe in one click, forever.</p>
+      </form>
+
+      <div class="thanks" data-thanks>
+        <h3>You're on the list.</h3>
+        <p>Two quick questions — optional, and they shape what gets built first.</p>
+        <div class="q" data-q="role">
+          <span class="q-label">What do you make posts for?</span>
+          <div class="chips">
+            <button type="button" class="chip">Clients</button>
+            <button type="button" class="chip">My own brand</button>
+            <button type="button" class="chip">An agency</button>
+            <button type="button" class="chip">Something else</button>
+          </div>
+        </div>
+        <div class="q" data-q="volume">
+          <span class="q-label">Roughly how many posts a month?</span>
+          <div class="chips">
+            <button type="button" class="chip">Under 10</button>
+            <button type="button" class="chip">10–40</button>
+            <button type="button" class="chip">40–100</button>
+            <button type="button" class="chip">More</button>
+          </div>
+        </div>
+        <p class="thanks-done" data-thanks-done>Tap an answer and it's saved.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <div>&copy; <span id="year">2026</span> Copycat</div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="https://instagram.com/INSTAGRAM_HANDLE" rel="noopener">Instagram</a>
+      <a href="mailto:CONTACT_EMAIL">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<div class="stickybar" id="stickybar">
+  <p>Turn a saved post into your client's design</p>
+  <a href="#join">Get early access</a>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
