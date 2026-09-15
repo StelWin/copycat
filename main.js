@@ -133,18 +133,37 @@
   }
 
   /* ---------- where they came from ----------
-     Instagram's in-app browser strips the referrer, so a tag on the link is
-     the only reliable way to tell a bio visit from a story or a given post.
-     Kept for the session so a trip to the privacy page doesn't lose it. */
+     Instagram's in-app browser strips the referrer, so without a tag on the
+     link every arrival looks identical — and there will be more sources than
+     one Instagram account. Two spellings are accepted: the short ?src=ig-bio
+     that fits in a profile link, and full utm_* if an ad platform ever adds
+     its own. Held for the session so a trip to the privacy page and back
+     doesn't lose the attribution. */
   var SOURCE = (function () {
     var key = 'cc_src';
     var q = new URLSearchParams(location.search);
-    var tag = q.get('src') || q.get('utm_source') || '';
+
+    var tag = (q.get('src') || '').trim();
+    if (!tag) {
+      // rebuild a short tag out of whatever utm_* turned up
+      var parts = [q.get('utm_source'), q.get('utm_medium')]
+        .filter(Boolean)
+        .map(function (v) { return v.trim().toLowerCase(); });
+      tag = parts.join('-');
+    }
+    var campaign = (q.get('utm_campaign') || q.get('post') || '').trim();
+
     try {
-      if (tag) sessionStorage.setItem(key, tag);
-      else tag = sessionStorage.getItem(key) || '';
-    } catch (e) { /* private browsing; the tag just won't survive the hop */ }
-    return tag || 'direct';
+      if (tag) {
+        sessionStorage.setItem(key, tag);
+        if (campaign) sessionStorage.setItem(key + '_c', campaign);
+      } else {
+        tag = sessionStorage.getItem(key) || '';
+        campaign = campaign || sessionStorage.getItem(key + '_c') || '';
+      }
+    } catch (e) { /* private browsing: the tag simply won't survive the hop */ }
+
+    return { tag: tag || 'direct', campaign: campaign };
   })();
 
   /* ---------- sign-up ---------- */
@@ -183,7 +202,13 @@
       button.disabled = true;
       button.textContent = 'Sending…';
 
-      send({ email: email, source: 'landing', came_from: SOURCE, page: location.pathname })
+      send({
+          email: email,
+          source: 'landing',
+          came_from: SOURCE.tag,
+          campaign: SOURCE.campaign,
+          page: location.pathname
+        })
         .then(function () {
           form.style.display = 'none';
           if (thanks) {
@@ -223,7 +248,8 @@
       send({
         email: thanks.dataset.email || '',
         source: 'survey',
-        came_from: SOURCE,
+        came_from: SOURCE.tag,
+        campaign: SOURCE.campaign,
         role: answers.role || '',
         volume: answers.volume || ''
       });
