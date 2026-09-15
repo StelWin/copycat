@@ -186,6 +186,18 @@
     });
   });
 
+  /* ---------- tapping away from the field should close the keyboard ----------
+     A desktop click anywhere blurs the input on its own. A touch does not:
+     on iOS, tapping a plain element leaves the field focused and the keyboard
+     up, with no obvious way down. So dismiss it by hand. */
+  document.addEventListener('pointerdown', function (e) {
+    var active = document.activeElement;
+    if (!active || active.tagName !== 'INPUT') return;
+    var form = active.closest('.signup');
+    if (form && form.contains(e.target)) return;   // still inside its own form
+    active.blur();
+  }, true);
+
   /* ---------- the two optional questions ---------- */
   document.querySelectorAll('[data-thanks]').forEach(function (thanks) {
     var done = thanks.querySelector('[data-thanks-done]');
